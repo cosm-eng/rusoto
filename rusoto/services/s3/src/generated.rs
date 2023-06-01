@@ -22263,7 +22263,7 @@ impl S3 for S3Client {
         request.add_optional_header("x-amz-max-parts", input.max_parts.as_ref());
         request.add_header(
             "x-amz-object-attributes",
-            &input.object_attributes.to_string(),
+            &input.object_attributes.join(",").to_string(),
         );
         request.add_optional_header(
             "x-amz-part-number-marker",
